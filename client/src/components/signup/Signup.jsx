@@ -1,7 +1,8 @@
 import React ,{useState}from 'react'
+import axios from "axios"
 import "./signup.css"
 
-function Signup() {
+function Signup(props) {
     const [data,setData]=useState({
         name:"",
         email:"",
@@ -13,69 +14,27 @@ function Signup() {
         var value=e.target.value;
         setData({...data,[Name]:value})
       }
-    
-      const postData=async(e)=>{
-        e.preventDefault();
-        // const {name,email,password}=data;
-        const res=await fetch("/user/addUser",{
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        }
-          
-        )
-        console.log(res);
-    
-        // axios.post("/user/addUser",{name,email,password}).then((data)=>{
-        //   alert('seccussfully added')
-        //   console.log(data);
-        // }).catch((err)=>{
-        //   console.log(err);
-        // })
-    
-        
-    
-     
-        // const res=await axios.post("/user/addUser",{
-        //   headers:{
-        //     "Content-Type":"application/json"
-        //   },
-        //   body:{name,email,password}
-        //   // JSON.stringify({
-        //   //   name,email,password
-        //   // })
-        // })
-        
-        // console.log(res,"rr");
-        // const rres=await res.json()
-        // console.log(rres);
-        // alert(res)
-    
-      }
-    
-      
+   
     
       return (
         <div className='main_container'>
           <h1>Signup </h1>
-          <form >
+          <form onSubmit={''}>
             <div>
               <label htmlFor="name">Name</label>
-              <input type="text" name="name" onChange={changeData} />
+              <input type="text" name="name" onChange={changeData} required   placeholder='Enter Your Name'/>
             </div>
             <div>
               <label htmlFor="email">Email</label>
-              <input type="text" name="email" onChange={changeData} />
+              <input type="text" name="email" onChange={changeData} required  placeholder='Enter Your Email'/>
             </div>
             <div>
               <label htmlFor="password">Password</label>
-              <input type="text" name="password"onChange={changeData}/>
+              <input type="text" name="password"onChange={changeData} required  placeholder='Create a Password'/>
             </div>
-            <div>
-              
-              <input type="submit" name="submit" onSubmit={postData}/>
+            <div className='d-flex ' >
+              <input type="submit" name="submit" />
+              <button  type="button" class="btn btn-primary    signupOrLoginBtnChange">Login</button>
             </div>
           </form>
         </div>
