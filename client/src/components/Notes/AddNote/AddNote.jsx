@@ -12,16 +12,21 @@ function AddNote() {
     const handleClick = (e) => {
         e.preventDefault()
         setBtn(true)
-
-        console.log(note.title, note.description, note.tag);
-
+        // if(note.title && note.description){
+        //     addNote(note.title, note.description, note.tag)
+        // }else{
+        //     alert('you not give proper title and description ')
+        // }
+        
         addNote(note.title, note.description, note.tag)
+        
+        setNote({ title: "", description: "", tag: "" })
+
 
 
     }
 
     const onchange = (e) => {
-        // console.log({[e.target.name]:e.target.value});
         setNote({ ...note, [e.target.name]: e.target.value })
 
 
@@ -53,7 +58,7 @@ function AddNote() {
                                 <div className="tag"><input type="radio" onChange={onchange} name='tag' value="Mark" /> Mark</div>
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-primary w-25 " onClick={handleClick}>ADD</button>
+                        <button disabled={note.title.length<3 || note.description.length<1} type="submit" className="btn btn-primary w-25 " onClick={handleClick}>ADD</button>
                     </form>
                 }
 

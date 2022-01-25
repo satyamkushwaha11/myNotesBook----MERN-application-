@@ -18,7 +18,7 @@ const addNote = async (req, res) => {
 
     try {
     
-
+           
         const note=new Notes({
             title,description,tag,user:req.user.id
         })
@@ -86,7 +86,9 @@ const updateNote=async(req,res)=>{
 
 const deleteNote=async(req,res)=>{
     try{
+    
         const note = await Notes.findById(req.params.id);
+    
         if (!note){
             return res.status(400).send({massage:"your note is not found"})
         }

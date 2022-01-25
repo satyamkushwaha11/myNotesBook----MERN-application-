@@ -84,7 +84,7 @@ function Notes() {
                             </div>
                             <div className="modal-footer">
                                 <button type="button" ref={refClose} className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary" onClick={handleClick}>Save changes</button>
+                                <button disabled={note.etitle.length<3 || note.edescription.length<1} type="button" className="btn btn-primary" onClick={handleClick}>Save changes</button>
                             </div>
                         </div>
                     </div>

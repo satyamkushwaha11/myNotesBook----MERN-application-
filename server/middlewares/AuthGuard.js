@@ -3,6 +3,7 @@ require('dotenv').config()
 
 const authenticate=(req,res,next)=>{
     const token=req.header('jwtToken');
+    console.log(token);
     if (!token){
         return res.status(401).send({error:"pls authenticate using a valid token"})
     }
