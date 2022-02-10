@@ -11,7 +11,6 @@ function Home() {
     return (
         <div className='homePage'>
             <AddNote />
-          
             <Notes />
 
         </div>

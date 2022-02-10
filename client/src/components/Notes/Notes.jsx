@@ -8,12 +8,13 @@ import NotesItem from './NotesItem';
 
 
 function Notes() {
+    const [note, setNote] = useState({ etitle: "", edescription: "", etag: "" })
     const context = useContext(NoteContext)
     const { notes, getAllNotes,editNote } = context
     useEffect(() => {
         getAllNotes()
     }, [])
-
+    
     const ref = useRef(null)
     const refClose=useRef(null)
 
@@ -26,7 +27,7 @@ function Notes() {
     // ----edit note form------------
 
 
-    const [note, setNote] = useState({ etitle: "", edescription: "", etag: "" })
+
     const handleClick = (e) => {
         e.preventDefault()
         refClose.current.click();

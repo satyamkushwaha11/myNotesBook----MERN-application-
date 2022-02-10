@@ -51,7 +51,7 @@ function AddNote() {
                             <textarea className='form-control' name='description' required onChange={onchange}></textarea>
                         </div>
                         <div className=' d-flex gap-3 align-items-center w-50 ' >
-                            <label>Tag: </label >
+                            <label>Tag: </label>
                             <div className='d-md-flex flex-md-row gap-md-3'>
                                 <div className="tag"><input type="radio" onChange={onchange} name='tag' value="General" /> General</div>
                                 <div className="tag"><input type="radio" onChange={onchange} name='tag' value="Favoraite" /> Favoraite</div>

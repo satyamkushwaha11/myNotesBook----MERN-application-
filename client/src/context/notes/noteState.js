@@ -8,7 +8,7 @@ const NoteState = (props) => {
   const host = "http://localhost:5000"
   const initialNotes = []
   const [notes, setNotes] = useState(initialNotes)
-
+  
 
 
 //------------------- Get All notes---------------------------------
